@@ -17,7 +17,67 @@
     max-height: 90vh;
     overflow-y: scroll;
     background-color: #787878;
-    
+
+    .toolbar {
+        position: fixed;
+        background-color: #373737;
+        z-index: 99;
+        width: 99%;
+        max-width: inherit;
+        font-size: 12px;
+
+        .toolbar-items {
+            display: flex;
+
+            .left {
+                display: flex;
+                justify-content: left;
+            }
+            .center {
+                display: flex;
+                justify-content: center;
+                flex: 1;
+            }
+            .right {
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+        
+
+        .search-menu {
+            z-index: 100;
+            position: absolute;
+            padding: 4px;
+            background-color: #666565;
+            display: none;
+
+            input[placeholder] {
+                font-style: italic;
+            }
+            input:focus,
+            input:focus {
+                outline: none;
+            }
+            .match-text {
+                font-weight: 100;
+                font-size: 14px;
+                font-style: italic;
+                margin: 0px 10px;
+                color: white;
+            }
+        }
+        .search-menu.open {
+            display: block;
+        }
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
     .highlight {
         color: black;
         font-weight: 400;
@@ -26,7 +86,7 @@
     .text-viewer {
         width: 99%;
         padding: 0px;
-        margin: 10px 5px;
+        margin: 30px 5px;
         white-space: pre-wrap;
         display: flex;
         z-index: 1;
@@ -35,14 +95,14 @@
         align-content: center;
         justify-content: center;
         align-items: center;
-        
+
         .content {
             background-color: #f1f1f1;
             width: 90%;
             padding: 15px;
-            box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.94);
-            -webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.94);
-            -moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.94);
+            box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.94);
+            -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.94);
+            -moz-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.94);
         }
     }
 }

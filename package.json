@@ -1,7 +1,7 @@
 {
   "name": "baleygr",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
@@ -13,6 +13,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "print-js": "^1.6.0",
     "vue": "^3.4.15"
   },
   "devDependencies": {

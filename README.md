@@ -24,3 +24,27 @@ const options = {}
 
 createApp().use(baleygr, options).mount('#app')
 ```
+
+# Formatos soportados
+- .txt
+- .json
+- .csv
+- .zip
+- .pdf
+- .xlsx
+- .docx
+- .jpeg
+- .bmp
+- .gif
+- .webmp
+- .ico
+
+## Personalizar
+### Toolbar
+```js
+const options = {
+    toolbar: {
+        backgroundColor: ''
+    }
+}
+```
