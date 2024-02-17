@@ -8,6 +8,12 @@
                 <div class="search-menu" :class="{ 'open': showSearchBox }" tabindex="-1">
                     <input type="text" name="search" v-model="search" placeholder="Buscar...">
                     <span class="match-text" v-text="match_text"></span>
+                    <button @click="prevMatch" :disabled="_numMatch == 0">
+                        <i class="mdi mdi-arrow-up"></i>
+                    </button>
+                    <button @click="nextMatch" :disabled="_numMatch == 0">
+                        <i class="mdi mdi-arrow-down"></i>
+                    </button>
                 </div>
             </template>
 
@@ -34,21 +40,24 @@ export default {
         result: '',
         search: '',
         showSearchBox: false,
+        currentMatch: 0,
     }),
     computed: {
         /**
          * Num coincidencias de busquedas
          * y muestra la cantidad
-         * @returns {string}
+         * @returns { number }
          */
-        match_text() {
-            let text = '';
-            // const matches = this.$.querySelector('span.highlight');
+        _numMatch() {
             const matches = this.result.split(' ').filter((w) => {
                 return w.includes('<span')
             });
-            if (matches) {
-                text = `${matches.length} match`;
+            return matches.length
+        },
+        match_text() {
+            let text = '';
+            if (this._numMatch) {
+                text = `${this._numMatch} match`;
             }
             return text;
         }
@@ -63,6 +72,33 @@ export default {
         },
     },
     methods: {
+        _listOfSpanMatch() {
+            const spans = document.querySelectorAll('span.highlight');
+            return Array.from(spans);
+        },
+        prevMatch() {
+            const arr = this._listOfSpanMatch();
+            const span  = arr[this.currentMatch];
+            span.scrollIntoView();
+
+            if (0 < this.currentMatch) {
+                this.currentMatch--;
+            } else {
+                this.currentMatch = arr.length -1;
+            }
+        },
+        nextMatch() {
+            const arr = this._listOfSpanMatch();
+            const span = arr[this.currentMatch]
+            span.scrollIntoView();
+            
+            if (this.currentMatch < arr.length - 1) {
+                this.currentMatch++;
+            }
+            else {
+                this.currentMatch = 0;
+            }
+        },
         searchInText(search) {
             if (search) {
                 this.result = this.fileContent.replaceAll(search, `<span class="highlight">${search}</span>`);

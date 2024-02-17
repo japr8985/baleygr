@@ -1,3 +1,4 @@
 export default {
-    'text/plain': 'txt',    
+    'text/plain': 'txt',  
+    'application/json': 'json'  
 }

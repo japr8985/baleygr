@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="center">
-                asdasd
+                <slot name="center"></slot>
             </div>
             <div class="right">
                 <div class="toolbar-item">
