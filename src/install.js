@@ -2,6 +2,7 @@
 import Viewer from '@/components/viewer/index.vue';
 import ViewerByFormat from '@/components/index.js';
 import FileType from './helpers/FileType';
+import MimeTypeToExtension from './helpers/MimeTypeToExtension';
 import '@/sass/main.scss';
 
 export default {
@@ -12,6 +13,7 @@ export default {
         });
         app.config.globalProperties.baleygr = {
             viewers: FileType,
+            mimeTypeToExtension: MimeTypeToExtension
         }
 
         if (Object.keys(options).length > 0) {

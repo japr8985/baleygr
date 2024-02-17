@@ -20,13 +20,17 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import baleygr from 'baleygr';
 
-const options = {}
+const options = {
+    ...
+}
 
 createApp().use(baleygr, options).mount('#app')
 ```
 
 # Formatos soportados
-- .txt
+|Extension| MIME Type  | Available|
+|---------|------------|----------|
+|.txt      | text/plain | ✅ |
 - .json
 - .csv
 - .zip

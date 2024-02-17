@@ -5,7 +5,7 @@
                 <div class="toolbar-item">
                     <slot name="left">
                         <slot name="search">
-
+                            
                         </slot>
                     </slot>
                 </div>
@@ -16,6 +16,9 @@
             <div class="right">
                 <div class="toolbar-item">
                     <slot name="right">
+                        <btn-baleygr @click="download">
+                            <i class="mdi mdi-download"></i>
+                        </btn-baleygr>
                         <btn-baleygr @click="print">
                             <i class="mdi mdi-printer"></i>
                         </btn-baleygr>
@@ -28,19 +31,21 @@
 <script>
 import CoreBtn from './btn.vue';
 export default {
+    name: 'baleygr-toolbar',
     components: {
         'btn-baleygr': CoreBtn,
     },
     props: {
-        blob: {
-            type: Blob,
-            required: true,
-        },
         printerFunction: {
+            type: Function
+        },
+        downloadFunction: {
+            type: Function
+        },
+        searchFunction: {
             type: Function
         }
     },
-    name: 'baleygr-toolbar',
     computed: {
         _options() {
             const { options } = this.baleygr;
@@ -55,6 +60,9 @@ export default {
     methods: {
         print() {
             this.printerFunction()
+        },
+        download() {
+            this.downloadFunction()
         }
     }
 };

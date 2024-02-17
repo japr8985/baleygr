@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        <toolbar :printerFunction="print" :downloadFunction="download">
+        <baleygr-toolbar :printerFunction="print" :downloadFunction="download">
             <template #search>
                 <btn-baleygr @click="showSearchBox = !showSearchBox">
                     <i class="mdi mdi-magnify"></i>
@@ -16,25 +16,24 @@
                     </button>
                 </div>
             </template>
-
-        </toolbar>
-
-        <div class="text-viewer">
-            <div class="content" ref="content" v-html="result" />
+        </baleygr-toolbar>
+        <div class="json-viewer">
+            <code class="content">
+                <pre  ref="content" v-html="result" />
+            </code>
         </div>
     </div>
 </template>
 <script>
-import Toolbar from '../Core/Toolbar/index.vue';
-import CoreBtn from '../Core/Toolbar/btn.vue';
-import Core from '../SimpleTextViewers/Core.vue'
+import Core from '../Core.vue'
+import BtnBaleygr from '@/components/Core/Toolbar/btn.vue';
+import Toolbar from '@/components/Core/Toolbar/index.vue';
 export default {
-    name: 'txt-viewer',
+    name: 'json-viewer',
+    mixins: [Core],
     components: {
-        'toolbar': Toolbar,
-        'btn-baleygr': CoreBtn,
+        'btn-baleygr': BtnBaleygr,
+        'baleygr-toolbar': Toolbar,
     },
-    mixins: [Core]
-
 };
 </script>
