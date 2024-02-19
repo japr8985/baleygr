@@ -1,6 +1,7 @@
 export default {
     'text/plain': 'txt',  
     'application/json': 'json',
-    'text/xml': 'txt',
-    'application/xml': 'txt'
+    "text/csv": 'txt',
+    'text/xml': 'xml',
+    'application/xml': 'xml'
 }

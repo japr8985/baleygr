@@ -31,8 +31,10 @@ createApp().use(baleygr, options).mount('#app')
 |Extension| MIME Type  | Available|
 |---------|------------|----------|
 |.txt      | text/plain | ✅ |
-- .json
-- .csv
+|.json      | application/json | ✅ |
+|.csv| text/csv| ✅ |
+|.xml| text/csv| ✅ |
+| .xlsx | application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | ✅ |
 - .zip
 - .pdf
 - .xlsx

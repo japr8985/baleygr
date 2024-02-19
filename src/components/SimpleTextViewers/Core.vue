@@ -13,7 +13,6 @@ export default {
         showSearchBox: false,
         currentMatch: 0,
     }),
-    
     computed: {
         /**
          * Num coincidencias de busquedas
@@ -37,7 +36,6 @@ export default {
     async mounted() {
         const text = await this.blob.text();
         this.result = this.fileContent = text.replaceAll('\n', '<br/>')
-        
     },
     watch: {
         search(value) {

@@ -29,6 +29,7 @@ export default {
             fetch(this.src)
                 .then((response) => response.blob())
                 .then((blob) => {
+                    console.log(blob)
                     this.blob = blob;
                 });
         }
